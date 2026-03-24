@@ -1,32 +1,31 @@
 x = 30
 class Telephone:
-    x = 10
-
-    print(x)
+    def __init__(self, ringtone = "ringtone"):
+        self.ringtone = ringtone
+        print ("Telephone created with ringtone: " + self.ringtone)
 
     def Respond():
         pass
-    def Ring():
-        pass
+    def Ring(self):
+        print (self.ringtone)
 
-Telephone.Respond()
-print(x)
-print(Telephone.x)
-z = Telephone.x
-Telephone.x = 20
-Telephone.y = 99
 
-t1 = Telephone()
-t1.ringtone = "ringtone1"
 
-t2 = Telephone()
-t2.ringtone = "ringtone2"
+t1 = Telephone("ringtone1")
+t1.Ring() #Telephone.Ring(t1)
+t2 = Telephone("ringtone2")
+t2.Ring() #Telephone.Ring(t2)
 
-list = []
-for t in range(500):
-    tel = Telephone()
-    list.append(tel)
-    tel.ringtone = "ringtone" + str(t)
 
-for tel in list:
-    print(tel.ringtone)
+class Node:
+    def __init__(self, id):
+        self.id = id
+
+Nodes = [Node(1), Node(2), Node(3), Node(4)]
+
+print (Nodes[0].id)
+class Graph:
+    def __init__(self, nodes):
+        self.nodes = nodes
+
+g = Graph(Nodes)
