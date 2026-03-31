@@ -3,12 +3,15 @@
 class Node:
     def __init__(self, code: str) -> None:
         self.code = code
-        
+class Arc:
+    def __init__(self, from_node: Node, to_node: Node, distance: int) -> None:
+        self.from_node = from_node
+        self.to_node = to_node
+        self.distance = distance
 class DAG:
     def __init__(self) -> None:
          self.nodes = []
          self.arcs = []
-
 
     def incomming_arcs(self, v: Node):
         # Discuss performance
@@ -20,8 +23,6 @@ class DAG:
         return inarcs
 
     def SP(self, s : Node, v: Node) -> int:
-        # Discuss performance
-
         min = None
         for a in self.incomming_arcs(v):
             # check if the minpathdict has a calculated min duration
@@ -37,12 +38,6 @@ class DAG:
 
         return min
     
-class Arc:
-    def __init__(self, from_node: Node, to_node: Node, distance: int) -> None:
-        self.from_node = from_node
-        self.to_node = to_node
-        self.distance = distance
-
 d = DAG()
 
 d.nodes.append(Node(1))
