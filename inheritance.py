@@ -1,6 +1,6 @@
 class Student:
     def __init__(self, name, grade):
-        self.name = zip(name)
+        self.name = name
         self.grade = grade
 
     def display_info(self):
@@ -18,11 +18,29 @@ class TA(Student): # TA is_a Student
         super().display_info()
         print(f"Salary: {self.salary}")
 
+    def grade_student(self):
+        print("grading student...")
+
+class ClubMember(Student, ): # ClubMember is_a Student
+    def __init__(self, name, grade, club):
+        super().__init__(name, grade)
+        self.club = club
+
+    def display_info(self): # Override the display_info method to include club information
+        super().display_info()
+        print(f"Club: {self.club}")
+
 
 Student1 = Student("A", 3.0)
 TA1 = TA("B", 3.5, 2000)  
+CM1 = ClubMember("C", 3.8, "Chess Club")
 
-TA1.display_info()
-TA1.display_name()
+students = [Student1, TA1, CM1]
+for student in students:    
+    student.display_info()
 
+for student in students:    
+    student.display_name()
 
+for student in students:    
+    student.grade_student()
